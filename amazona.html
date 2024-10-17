@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazonas Travel</title>
+    <title>Taal Keuze - Amazonas Travel</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f0f8ff;
-        }
-        h1 {
-            color: DarkCyan;
         }
         .language-button {
             margin: 10px;
@@ -23,32 +20,10 @@
 </head>
 <body>
 
-    <div id="language-selection">
-        <h1>Amazonas Travel</h1>
-        <p>Kies uw taal:</p>
-        <button class="language-button" onclick="showPage('nl')">Nederlands</button>
-        <button class="language-button" onclick="showPage('fr')">Français</button>
-    </div>
-
-    <div id="content" style="display:none;">
-        <h1 style="color:DarkCyan;" id="title"></h1>
-        <p id="description"></p>
-    </div>
-
-    <script>
-        function showPage(language) {
-            document.getElementById('language-selection').style.display = 'none';
-            document.getElementById('content').style.display = 'block';
-
-            if (language === 'nl') {
-                document.getElementById('title').innerText = 'Amazonas Travel';
-                document.getElementById('description').innerText = 'Interactieve kaart';
-            } else if (language === 'fr') {
-                document.getElementById('title').innerText = 'Voyage Amazonas';
-                document.getElementById('description').innerText = 'Carte interactive';
-            }
-        }
-    </script>
+    <h1>Amazonas Travel</h1>
+    <p>Kies uw taal:</p>
+    <button class="language-button" onclick="window.location.href='index_nl.html'">Nederlands</button>
+    <button class="language-button" onclick="window.location.href='index_fr.html'">Français</button>
 
 </body>
 </html>
