@@ -9,42 +9,58 @@
             font-family: Arial, sans-serif;
             background-color: #ffffff;
         }
-        h1 {
-            color: DarkCyan;
-            text-align: center;
-        }
+
         .navbar {
             background-color: DarkCyan;
             padding: 10px;
             text-align: center;
         }
+
         .navbar a {
             color: white;
             margin: 0 15px;
             text-decoration: none;
             font-size: 18px;
         }
+
         .navbar a:hover {
             text-decoration: underline;
         }
+
         .flex-container {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start; /* Zorgt ervoor dat items aan de bovenkant uitgelijnd zijn */
             margin: 20px;
-            text-align: left; /* Zorgt ervoor dat de tekst in de <p> links wordt uitgelijnd */
+            text-align: left;
         }
+
         .flex-container .text-container {
-            max-width: 45%; /* Beperkt de breedte van de tekstcontainer */
+            max-width: 40%; /* Beperkt de breedte van de tekstcontainer */
         }
+
+        .flex-container .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Beeld en tekst rechts uitlijnen */
+        }
+
         .flex-container .image {
-            max-width: 50%;
+            max-width: 60%;
             height: auto;
         }
+
+        .image-container h1 {
+            color: DarkCyan;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
         .container {
             position: relative;
             display: inline-block;
         }
+
         .tooltip {
             position: absolute;
             background-color: rgba(0, 0, 0, 0.7);
@@ -65,19 +81,19 @@
         <a href="overons_nl.html">Over ons</a>
     </div>
 
-    <!-- H1 blijft boven de flex-container, gecentreerd -->
-    <h1>Vind inspiratie:</h1>
-
-    <!-- Flex-container met tekst en afbeelding -->
+    <!-- Flex-container met tekst links en afbeelding rechts -->
     <div class="flex-container">
         <div class="text-container">
             <p>Configureer jouw reis, met AI vinden we het beste aan de laagste prijs!</p>
         </div>
 
-        <!-- Beeld van de kaart -->
-        <div class="container" id="image-container">
-            <img src="3DkaartAmazoneMetSpots.png" alt="Vind Inspiratie" class="image">
-            <div class="tooltip" id="tooltip"></div>
+        <!-- Afbeelding en h1 in dezelfde container -->
+        <div class="image-container">
+            <h1>Vind inspiratie:</h1>
+            <div class="container" id="image-container">
+                <img src="3DkaartAmazoneMetSpots.png" alt="Vind Inspiratie" class="image">
+                <div class="tooltip" id="tooltip"></div>
+            </div>
         </div>
     </div>
 
@@ -134,4 +150,3 @@
 
 </body>
 </html>
-
