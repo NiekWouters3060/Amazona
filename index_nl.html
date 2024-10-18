@@ -66,7 +66,7 @@
     </div>
 
     <py-script>
-        from js import document, window, create_proxy
+        from js import document
 
         # Tooltip-element
         tooltip = document.getElementById('tooltip')
@@ -88,7 +88,7 @@
         def hide_tooltip():
             tooltip.style.display = 'none'
 
-        # Mousemove event
+        # Mousemove event handler
         def on_mouse_move(event):
             x = event.clientX - event.target.getBoundingClientRect().left
             y = event.clientY - event.target.getBoundingClientRect().top
@@ -104,12 +104,17 @@
             if not found:
                 hide_tooltip()
 
-        # Event listeners toevoegen met create_proxy
+        # Event listeners toevoegen
         image_container = document.getElementById('image-container')
-        image_container.addEventListener('mousemove', create_proxy(on_mouse_move))
-        image_container.addEventListener('mouseleave', create_proxy(hide_tooltip))
+
+        # Handlers binden zonder create_proxy
+        def bind_events():
+            image_container.addEventListener('mousemove', on_mouse_move)
+            image_container.addEventListener('mouseleave', hide_tooltip)
+
+        # Bind de events
+        bind_events()
     </py-script>
 
 </body>
 </html>
-
