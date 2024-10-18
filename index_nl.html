@@ -37,14 +37,14 @@
 
         .flex-container .text-container {
             max-width: 40%; /* Beperkt de breedte van de tekstcontainer */
-            margin: 20px;
         }
 
         .flex-container .image-container {
             display: flex;
             flex-direction: column;
-            align-items: flex-end; /* Beeld en tekst rechts uitlijnen */
-            text-align: cenetr;
+            justify-content: center; /* Verticale centrering */
+            align-items: center; /* Horizontale centrering */
+            width: 100%; /* Zorgt dat de kolom de hele breedte benut */
         }
 
         .flex-container .image {
@@ -52,13 +52,12 @@
             height: auto;
         }
 
-        .image-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* Verticaal centreren */
-        align-items: center; /* Horizontaal centreren */
-        max-width: 60%; /* Breedte van de kolom */
+        .image-container h1 {
+            color: DarkCyan;
+            margin-bottom: 10px;
+            text-align: center;
         }
+
         .container {
             position: relative;
             display: inline-block;
@@ -77,7 +76,7 @@
 </head>
 <body>
 
-    <center><img src="LOGO.png" alt="LOGO" class="image" style="width:200px;height:200px;"></center>
+    <img src="LOGO.png" alt="LOGO" class="image" style="width:200px;height:200px;">
     <div class="navbar">
         <a href="index_nl.html">Home</a>
         <a href="ervaringen_nl.html">Ervaringen</a>
@@ -87,13 +86,12 @@
     <!-- Flex-container met tekst links en afbeelding rechts -->
     <div class="flex-container">
         <div class="text-container">
-            <h1 style="color: DarkCyan;">CONFIGUREER MET AI:</h1>
-            <p>Met onze AI vind je snel het beste aan de laagste prijs!</p>
+            <p>Configureer jouw reis, met AI vinden we het beste aan de laagste prijs!</p>
         </div>
 
         <!-- Afbeelding en h1 in dezelfde container -->
         <div class="image-container">
-            <h1 style="color: DarkCyan;">Vind inspiratie:</h1>
+            <h1>Vind inspiratie:</h1>
             <div class="container" id="image-container">
                 <img src="3DkaartAmazoneMetSpots.png" alt="Vind Inspiratie" class="image">
                 <div class="tooltip" id="tooltip"></div>
@@ -154,3 +152,4 @@
 
 </body>
 </html>
+
