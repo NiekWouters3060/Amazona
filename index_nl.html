@@ -52,12 +52,13 @@
             height: auto;
         }
 
-        .image-container h1 {
-            color: DarkCyan;
-            margin-bottom: 10px;
-            text-align: center;
+        .image-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Verticaal centreren */
+        align-items: center; /* Horizontaal centreren */
+        max-width: 60%; /* Breedte van de kolom */
         }
-
         .container {
             position: relative;
             display: inline-block;
