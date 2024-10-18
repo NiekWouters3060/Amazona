@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazonas Travel - Nederlands</title>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,63 +63,55 @@
         <div class="tooltip" id="tooltip"></div>
     </div>
 
-    <py-script>
-        from js import document, window
+    <script>
+        const tooltip = document.getElementById('tooltip');
+        const imageContainer = document.getElementById('image-container');
 
-        # Tooltip-element
-        tooltip = document.getElementById('tooltip')
+        // Voorbeeld hotspots
+        const hotspots = [
+            {x: 100, y: 150, text: 'Dit is een hotspot!'},
+            {x: 300, y: 250, text: 'Hier is iets interessants!'},
+            {x: 400, y: 100, text: 'Nog een interessante plek!'}
+        ];
 
-        # Voorbeeld hotspots
-        hotspots = [
-            {'x': 100, 'y': 150, 'text': 'Dit is een hotspot!'},
-            {'x': 300, 'y': 250, 'text': 'Hier is iets interessants!'},
-            {'x': 400, 'y': 100, 'text': 'Nog een interessante plek!'}
-        ]
+        // Functie om de tooltip te tonen
+        function showTooltip(x, y, text) {
+            tooltip.style.left = `${x}px`;
+            tooltip.style.top = `${y}px`;
+            tooltip.textContent = text;
+            tooltip.style.display = 'block';
+        }
 
-        # Functie om de tooltip te tonen
-        def show_tooltip(x, y, text):
-            tooltip.style.left = f"{x}px"
-            tooltip.style.top = f"{y}px"
-            tooltip.textContent = text
-            tooltip.style.display = 'block'
+        // Functie om de tooltip te verbergen
+        function hideTooltip() {
+            tooltip.style.display = 'none';
+        }
 
-        # Functie om de tooltip te verbergen
-        def hide_tooltip():
-            tooltip.style.display = 'none'
+        // Mousemove event handler
+        function onMouseMove(event) {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
 
-        # Mousemove event handler
-        def on_mouse_move(event):
-            x = event.clientX - event.target.getBoundingClientRect().left
-            y = event.clientY - event.target.getBoundingClientRect().top
+            let found = false;
+            for (const hotspot of hotspots) {
+                const distance = Math.sqrt((hotspot.x - x) ** 2 + (hotspot.y - y) ** 2);
+                if (distance < 30) { // Drempelwaarde
+                    showTooltip(hotspot.x, hotspot.y, hotspot.text);
+                    found = true;
+                    break;
+                }
+            }
 
-            found = False
-            for hotspot in hotspots:
-                distance = ((hotspot['x'] - x) ** 2 + (hotspot['y'] - y) ** 2) ** 0.5
-                if distance < 30:  # Drempelwaarde
-                    show_tooltip(hotspot['x'], hotspot['y'], hotspot['text'])
-                    found = True
-                    break
-            
-            if not found:
-                hide_tooltip()
+            if (!found) {
+                hideTooltip();
+            }
+        }
 
-        # Event listeners toevoegen
-        image_container = document.getElementById('image-container')
-
-        # Binden van de functies met een closure
-        def bind_events():
-            image_container.addEventListener('mousemove', on_mouse_move)
-            image_container.addEventListener('mouseleave', hide_tooltip)
-
-        # Evenementen binden
-        bind_events()
-
-    </py-script>
-
-</body>
-</html>
-
-    </py-script>
+        // Event listeners toevoegen
+        imageContainer.addEventListener('mousemove', onMouseMove);
+        imageContainer.addEventListener('mouseleave', hideTooltip);
+    </script>
 
 </body>
 </html>
