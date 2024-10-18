@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazonas Travel - Nederlands</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,7 +58,7 @@
     <h1>Amazonas Travel</h1>
     <p>Configureer jouw reis, met AI vinden we het beste aan de laagste prijs!</p>
     <p>Interactieve kaart</p>
-    <!-- Extern Python-bestand aanroepen -->
+    
     <h1>Interactieve Foto</h1>
     <div class="container" id="image-container">
         <img src="amazonemap.png" alt="Interactieve Foto" class="image">
@@ -64,7 +66,7 @@
     </div>
 
     <py-script>
-        from js import document, window
+        from js import document
 
         # Tooltip-element
         tooltip = document.getElementById('tooltip')
@@ -110,3 +112,4 @@
 
 </body>
 </html>
+
