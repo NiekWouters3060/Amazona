@@ -58,7 +58,7 @@
     <h1>Amazonas Travel</h1>
     <p>Configureer jouw reis, met AI vinden we het beste aan de laagste prijs!</p>
     
-    <h1>-Interactieve Kaart-</h1>
+    <h1>- Interactieve Kaart -</h1>
     <div class="container" id="image-container">
         <img src="amazonemap.png" alt="Interactieve Foto" class="image">
         <div class="tooltip" id="tooltip"></div>
@@ -95,7 +95,7 @@
             found = False
             for hotspot in hotspots:
                 distance = ((hotspot['x'] - x) ** 2 + (hotspot['y'] - y) ** 2) ** 0.5
-                if distance < 100:  # Drempelwaarde
+                if distance < 1000:  # Drempelwaarde
                     show_tooltip(hotspot['x'], hotspot['y'], hotspot['text'])
                     found = True
                     break
