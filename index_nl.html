@@ -27,8 +27,14 @@
             text-decoration: underline;
         }
         .container {
-            position: relative;
-            display: inline-block;
+            display: flex;
+            justify-content: space-between; /* Ruimte tussen tekst en afbeelding */
+            align-items: center; /* Verticaal uitlijnen */
+            margin: 20px 0; /* Optioneel, wat extra ruimte erboven en eronder */
+        }
+        .container img {
+            max-width: 40%;
+            height: auto;
         }
         .image {
             max-width: 100%;
@@ -56,8 +62,8 @@
 
     <p>Configureer jouw reis, met AI vinden we het beste aan de laagste prijs!</p>
     
-    <h1>Vind inspiratie:</h1>
     <div class="container" id="image-container">
+        <h1>Vind inspiratie:</h1>
         <img src="3DkaartAmazoneMetSpots.png" alt="Vind Inspiratie" class="image">
         <div class="tooltip" id="tooltip"></div>
     </div>
