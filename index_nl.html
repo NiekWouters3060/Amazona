@@ -66,7 +66,7 @@
     </div>
 
     <py-script>
-        from js import document, create_proxy
+        from js import document
 
         # Tooltip-element
         tooltip = document.getElementById('tooltip')
@@ -75,7 +75,7 @@
         hotspots = [
             {'x': 100, 'y': 150, 'text': 'Dit is een hotspot!'},
             {'x': 300, 'y': 250, 'text': 'Hier is iets interessants!'},
-            {'x': 5, 'y': 1, 'text': 'Nog een interessante plek!'}
+            {'x': 400, 'y': 100, 'text': 'Nog een interessante plek!'}
         ]
 
         # Functie om de tooltip te tonen
@@ -105,16 +105,17 @@
             if not found:
                 hide_tooltip()
 
-        # Event listeners toevoegen met create_proxy
+        # Event listeners toevoegen zonder create_proxy
         image_container = document.getElementById('image-container')
 
-        # Handlers binden
-        image_container.addEventListener('mousemove', create_proxy(on_mouse_move))
-        image_container.addEventListener('mouseleave', create_proxy(hide_tooltip))
+        # Gebruik lambda om de functies op de juiste manier aan te roepen
+        image_container.addEventListener('mousemove', lambda e: on_mouse_move(e))
+        image_container.addEventListener('mouseleave', lambda e: hide_tooltip())
     </py-script>
 
 </body>
 </html>
+
 
     </py-script>
 
