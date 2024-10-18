@@ -14,9 +14,10 @@
             display: flex;
             justify-content: space-between; /* Zorgt voor ruimte tussen items */
             align-items: center; /* Centreert het logo verticaal */
-            background-color: DarkCyan;
+            background-color: white;
             padding: 20px; /* Vergroot de hoogte van de balk */
             height: 80px; /* Stelt een vaste hoogte in */
+            border-bottom: 4px solid DarkCyan; /* DarkCyan rand aan de onderkant */
         }
 
         .navbar .logo {
@@ -26,7 +27,7 @@
         }
 
         .navbar a {
-            color: white;
+            color: DarkCyan;
             margin: 0 20px; /* Vergroot de ruimte tussen de links */
             text-decoration: none;
             font-size: 18px;
@@ -34,6 +35,7 @@
 
         .navbar a:hover {
             text-decoration: underline;
+            color: DarkCyan; /* Zorgt dat de tekst ook bij hover DarkCyan blijft */
         }
         .flex-container {
             display: flex;
