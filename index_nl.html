@@ -11,22 +11,30 @@
         }
 
         .navbar {
+            display: flex;
+            justify-content: space-between; /* Zorgt voor ruimte tussen items */
+            align-items: center; /* Centreert het logo verticaal */
             background-color: DarkCyan;
-            padding: 10px;
-            text-align: center;
+            padding: 20px; /* Vergroot de hoogte van de balk */
+            height: 80px; /* Stelt een vaste hoogte in */
+        }
+
+        .navbar .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%); /* Zorgt ervoor dat het logo precies in het midden staat */
         }
 
         .navbar a {
             color: white;
-            margin: 0 15px;
+            margin: 0 20px; /* Vergroot de ruimte tussen de links */
             text-decoration: none;
             font-size: 18px;
         }
-        
+
         .navbar a:hover {
             text-decoration: underline;
         }
-
         .flex-container {
             display: flex;
             justify-content: space-between;
@@ -77,11 +85,14 @@
 </head>
 <body>
 
-    <center><img src="LOGO.png" alt="LOGO" class="image" style="width:200px;height:200px;"></center>
     <div class="navbar">
-        <a href="index_nl.html">Home</a>
-        <a href="ervaringen_nl.html">Ervaringen</a>
-        <a href="overons_nl.html">Over ons</a>
+    <a href="index_nl.html">Home</a>
+    <a href="ervaringen_nl.html">Ervaringen</a>
+    
+    <!-- Logo in het midden -->
+    <img src="LOGO.png" alt="LOGO" class="logo" style="width:80px;height:80px;">
+    
+    <a href="overons_nl.html">Over ons</a>
     </div>
 
     <!-- Flex-container met tekst links en afbeelding rechts -->
