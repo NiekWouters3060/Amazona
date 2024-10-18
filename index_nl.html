@@ -13,9 +13,6 @@
         h1 {
             color: DarkCyan;
         }
-        p {
-            text-align: left;
-        }
         .navbar {
             background-color: DarkCyan;
             padding: 10px;
@@ -61,7 +58,7 @@
     
     <h1>Vind inspiratie:</h1>
     <div class="container" id="image-container">
-        <img src="3DkaartAmazoneMetSpots.png" alt="Vind Inspiratie" class="image" style="width:725px;height:528px;>
+        <img src="3DkaartAmazoneMetSpots.png" alt="Vind Inspiratie" class="image">
         <div class="tooltip" id="tooltip"></div>
     </div>
 
@@ -69,7 +66,7 @@
         const tooltip = document.getElementById('tooltip');
         const imageContainer = document.getElementById('image-container');
 
-        //  hotspots
+        // Voorbeeld hotspots
         const hotspots = [
             {x: 485, y: 170, text: 'Suriname'},
             {x: 400, y: 145, text: 'Venezuela'},
@@ -79,8 +76,8 @@
 
         // Functie om de tooltip te tonen
         function showTooltip(x, y, text) {
-            tooltip.style.left = `${x}px`;
-            tooltip.style.top = `${y}px`;
+            tooltip.style.left = ${x}px;
+            tooltip.style.top = ${y}px;
             tooltip.textContent = text;
             tooltip.style.display = 'block';
         }
