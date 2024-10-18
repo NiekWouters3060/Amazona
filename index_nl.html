@@ -30,7 +30,7 @@
             text-decoration: underline;
         }
         .container {
-            position: relative;
+            position: right;
             display: inline-block;
         }
         .image {
@@ -61,7 +61,7 @@
     
     <h1>Vind inspiratie:</h1>
     <div class="container" id="image-container">
-        <img src="3DkaartAmazoneMetSpots.png" alt="Vind Inspiratie" class="image">
+        <img src="3DkaartAmazoneMetSpots.png" alt="Vind Inspiratie" class="image" style="width:725px;height:528px;>
         <div class="tooltip" id="tooltip"></div>
     </div>
 
@@ -69,7 +69,7 @@
         const tooltip = document.getElementById('tooltip');
         const imageContainer = document.getElementById('image-container');
 
-        // Voorbeeld hotspots
+        //  hotspots
         const hotspots = [
             {x: 485, y: 170, text: 'Suriname'},
             {x: 400, y: 145, text: 'Venezuela'},
