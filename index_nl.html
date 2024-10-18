@@ -57,15 +57,16 @@
 
     <h1>Amazonas Travel</h1>
     <p>Configureer jouw reis, met AI vinden we het beste aan de laagste prijs!</p>
+    <p>Interactieve kaart</p>
     
-    <h1>- Interactieve Kaart -</h1>
+    <h1>Interactieve Foto</h1>
     <div class="container" id="image-container">
         <img src="amazonemap.png" alt="Interactieve Foto" class="image">
         <div class="tooltip" id="tooltip"></div>
     </div>
 
     <py-script>
-        from js import document
+        from js import document, window, create_proxy
 
         # Tooltip-element
         tooltip = document.getElementById('tooltip')
@@ -95,7 +96,7 @@
             found = False
             for hotspot in hotspots:
                 distance = ((hotspot['x'] - x) ** 2 + (hotspot['y'] - y) ** 2) ** 0.5
-                if distance < 1000:  # Drempelwaarde
+                if distance < 30:  # Drempelwaarde
                     show_tooltip(hotspot['x'], hotspot['y'], hotspot['text'])
                     found = True
                     break
@@ -103,11 +104,12 @@
             if not found:
                 hide_tooltip()
 
-        # Event listeners toevoegen
+        # Event listeners toevoegen met create_proxy
         image_container = document.getElementById('image-container')
-        image_container.addEventListener('mousemove', on_mouse_move)
-        image_container.addEventListener('mouseleave', hide_tooltip)
+        image_container.addEventListener('mousemove', create_proxy(on_mouse_move))
+        image_container.addEventListener('mouseleave', create_proxy(hide_tooltip))
     </py-script>
 
 </body>
 </html>
+
