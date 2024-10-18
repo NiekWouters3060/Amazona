@@ -57,15 +57,16 @@
 
     <h1>Amazonas Travel</h1>
     <p>Configureer jouw reis, met AI vinden we het beste aan de laagste prijs!</p>
+    <p>Interactieve kaart</p>
     
-    <h1>Interactieve Kaart</h1>
+    <h1>Interactieve Foto</h1>
     <div class="container" id="image-container">
         <img src="amazonemap.png" alt="Interactieve Foto" class="image">
         <div class="tooltip" id="tooltip"></div>
     </div>
 
     <py-script>
-        from js import document
+        from js import document, create_proxy
 
         # Tooltip-element
         tooltip = document.getElementById('tooltip')
@@ -74,7 +75,7 @@
         hotspots = [
             {'x': 100, 'y': 150, 'text': 'Dit is een hotspot!'},
             {'x': 300, 'y': 250, 'text': 'Hier is iets interessants!'},
-            {'x': 5, 'y': 5, 'text': 'Nog een interessante plek!'}
+            {'x': 5, 'y': 1, 'text': 'Nog een interessante plek!'}
         ]
 
         # Functie om de tooltip te tonen
@@ -104,16 +105,17 @@
             if not found:
                 hide_tooltip()
 
-        # Event listeners toevoegen
+        # Event listeners toevoegen met create_proxy
         image_container = document.getElementById('image-container')
 
-        # Handlers binden zonder create_proxy
-        def bind_events():
-            image_container.addEventListener('mousemove', on_mouse_move)
-            image_container.addEventListener('mouseleave', hide_tooltip)
+        # Handlers binden
+        image_container.addEventListener('mousemove', create_proxy(on_mouse_move))
+        image_container.addEventListener('mouseleave', create_proxy(hide_tooltip))
+    </py-script>
 
-        # Bind de events
-        bind_events()
+</body>
+</html>
+
     </py-script>
 
 </body>
