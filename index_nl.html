@@ -95,7 +95,7 @@
             found = False
             for hotspot in hotspots:
                 distance = ((hotspot['x'] - x) ** 2 + (hotspot['y'] - y) ** 2) ** 0.5
-                if distance < 30:  # Drempelwaarde
+                if distance < 100:  # Drempelwaarde
                     show_tooltip(hotspot['x'], hotspot['y'], hotspot['text'])
                     found = True
                     break
