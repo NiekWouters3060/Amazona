@@ -7,15 +7,16 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             background-color: #ffffff;
         }
         h1 {
             color: DarkCyan;
+            text-align: center;
         }
         .navbar {
             background-color: DarkCyan;
             padding: 10px;
+            text-align: center;
         }
         .navbar a {
             color: white;
@@ -26,13 +27,23 @@
         .navbar a:hover {
             text-decoration: underline;
         }
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px;
+            text-align: left; /* Zorgt ervoor dat de tekst in de <p> links wordt uitgelijnd */
+        }
+        .flex-container .text-container {
+            max-width: 45%; /* Beperkt de breedte van de tekstcontainer */
+        }
+        .flex-container .image {
+            max-width: 50%;
+            height: auto;
+        }
         .container {
             position: relative;
             display: inline-block;
-        }
-        .image {
-            max-width: 100%;
-            height: auto;
         }
         .tooltip {
             position: absolute;
@@ -54,12 +65,20 @@
         <a href="overons_nl.html">Over ons</a>
     </div>
 
-    <p>Configureer jouw reis, met AI vinden we het beste aan de laagste prijs!</p>
-    
+    <!-- H1 blijft boven de flex-container, gecentreerd -->
     <h1>Vind inspiratie:</h1>
-    <div class="container" id="image-container">
-        <img src="3DkaartAmazoneMetSpots.png" alt="Vind Inspiratie" class="image">
-        <div class="tooltip" id="tooltip"></div>
+
+    <!-- Flex-container met tekst en afbeelding -->
+    <div class="flex-container">
+        <div class="text-container">
+            <p>Configureer jouw reis, met AI vinden we het beste aan de laagste prijs!</p>
+        </div>
+
+        <!-- Beeld van de kaart -->
+        <div class="container" id="image-container">
+            <img src="3DkaartAmazoneMetSpots.png" alt="Vind Inspiratie" class="image">
+            <div class="tooltip" id="tooltip"></div>
+        </div>
     </div>
 
     <script>
@@ -115,3 +134,4 @@
 
 </body>
 </html>
+
